@@ -6,7 +6,7 @@ sudo dnf install -y rpmdevtools rpmlint
 rpmdev-setuptree
 
 # Create something you want to package, here we'll use a simple shell script
-cat << EOF > myrpm.sh
+cat > myrpm.sh << EOF
 #!/bin/sh
 echo "Hello! This is my first RPM!"
 EOF
@@ -24,6 +24,7 @@ mv myrpm-0.1.0.tar.gz rpmbuild/SOURCES
 # dependencies it has and how it should be uninstalled
 cd rpmbuild/SPECS
 rpmdev-newspec myrpm
+# See example spec file in rpm/example-spec-file.spec
 
 # Build the package
 rpmbuild -ba rpmbuild/SPECS/myrpm.spec
