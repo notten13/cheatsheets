@@ -1,0 +1,4 @@
+node_modules
+**/appendonlydir
+**/dump.rdb
+**/nodes.conf
