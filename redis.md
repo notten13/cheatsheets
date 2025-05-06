@@ -202,6 +202,9 @@ ioredis->>ioredis: Execute retryStrategy (by default: returns null)
 ioredis->>ioredis.Cluster: "end" event
 
 ioredis.Cluster->>Client: "close" event
+Note right of ioredis.Cluster: "close" is emitted in response to "end" from the last available node.
+Note right of ioredis.Cluster: If other nodes were still connected "close" would not be emitted.
+
 
 ioredis.Cluster->>ioredis.Cluster: Execute clusterRetryStrategy
 
